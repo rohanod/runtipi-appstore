@@ -4,7 +4,7 @@
       "name": "pocket-id",
       "image": "ghcr.io/pocket-id/pocket-id:v0.53.0",
       "environment": {
-        "PUBLIC_APP_URL": "${APP_DOMAIN}"
+        "PUBLIC_APP_URL": "https://pocketid.rohanodywer.com"
       },
       "internalPort": 80,
       "volumes": [

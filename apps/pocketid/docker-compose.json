@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "pocket-id",
-      "image": "pocket-id:v0.53.0",
+      "image": "ghcr.io/pocket-id/pocket-id:v0.53.0",
       "environment": {
         "PUBLIC_APP_URL": "${APP_DOMAIN}"
       },

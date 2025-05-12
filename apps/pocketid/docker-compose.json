@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "name": "pocket-id",
+      "image": "pocket-id:v0.53.0",
+      "environment": {
+        "PUBLIC_APP_URL": "${APP_DOMAIN}"
+      },
+      "internalPort": 80,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/app/backend/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "isMain": true
+    }
+  ]
+}

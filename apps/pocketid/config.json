@@ -16,7 +16,7 @@
     "updated_at": 1746977438925,
     "form_fields": [
         {
-          "type": "url",
+          "type": "text",
           "label": "Public App URL(Without http:// or https://)",
           "max": 50,
           "min": 3,

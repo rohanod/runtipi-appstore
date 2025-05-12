@@ -7,7 +7,7 @@
     "port": 8129,
     "categories": ["security", "utilities"],
     "description": "This is an OIDC provider that uses passkeys for authentication.",
-    "tipi_version": 1,
+    "tipi_version": 2,
     "version": "v0.53.0",
     "source": "https://github.com/pocket-id/pocket-id",
     "exposable": true,

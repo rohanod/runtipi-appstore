@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "hoarder",
-      "image": "ghcr.io/hoarder-app/hoarder:${HOARDER_VERSION}",
+      "image": "ghcr.io/karakeep-app/karakeep:${HOARDER_VERSION}",
       "isMain": true,
       "internalPort": 3000,
       "environment": {

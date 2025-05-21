@@ -8,14 +8,22 @@ services:
     ports:
       - ${APP_PORT}:3000
     environment:
-      - MEILI_ADDR=http://hoarder-meilisearch:7700
-      - BROWSER_WEB_URL=http://hoarder-chrome:9222
-      - DATA_DIR=/data
-      - HOARDER_VERSION=0.16.0
+      - MEILI_ADDR=${MEILI_ADDR:-http://hoarder-meilisearch:7700}
+      - BROWSER_WEB_URL=${BROWSER_WEB_URL:-http://hoarder-chrome:9222}
+      - DATA_DIR=${DATA_DIR:-/data}
+      - HOARDER_VERSION=${HOARDER_VERSION}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
       - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
-      - NEXTAUTH_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - NEXTAUTH_URL=${NEXTAUTH_URL}
+      - INFERENCE_IMAGE_MODEL=${INFERENCE_IMAGE_MODEL}
+      - INFERENCE_TEXT_MODEL=${INFERENCE_TEXT_MODEL}
+      - DISABLE_SIGNUPS=${DISABLE_SIGNUPS}
+      - DISABLE_PASSWORD_AUTH=${DISABLE_PASSWORD_AUTH}
+      - OAUTH_CLIENT_ID=${OAUTH_CLIENT_ID}
+      - OAUTH_CLIENT_SECRET=${OAUTH_CLIENT_SECRET}
+      - OAUTH_WELLKNOWN_URL=${OAUTH_WELLKNOWN_URL}
+      - OAUTH_PROVIDER_NAME=${OAUTH_PROVIDER_NAME}
     networks:
       - tipi_main_network
     labels:

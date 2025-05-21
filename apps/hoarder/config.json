@@ -32,11 +32,62 @@
       "env_variable": "OPENAI_API_KEY"
     },
     {
+      "type": "text",
+      "label": "Inference Image Model",
+      "required": false,
+      "env_variable": "INFERENCE_IMAGE_MODEL",
+      "default": "gpt-4o-mini"
+    },
+    {
+      "type": "text",
+      "label": "Inference Text Model",
+      "required": false,
+      "env_variable": "INFERENCE_TEXT_MODEL",
+      "default": "gpt-4.1-mini"
+    },
+    {
       "type": "boolean",
       "label": "Disable Signups",
       "required": true,
       "env_variable": "DISABLE_SIGNUPS",
       "default": false
+    },
+    {
+      "type": "boolean",
+      "label": "Disable Password Auth",
+      "required": true,
+      "env_variable": "DISABLE_PASSWORD_AUTH",
+      "default": false
+    },
+    {
+      "type": "url",
+      "label": "NextAuth URL(Base URL of app)",
+      "required": false,
+      "env_variable": "NEXTAUTH_URL"
+    },
+    {
+      "type": "text",
+      "label": "OAuth Client ID",
+      "required": false,
+      "env_variable": "OAUTH_CLIENT_ID"
+    },
+    {
+      "type": "password",
+      "label": "OAuth Client Secret",
+      "required": false,
+      "env_variable": "OAUTH_CLIENT_SECRET"
+    },
+    {
+      "type": "url",
+      "label": "OAuth Well Known URL",
+      "required": false,
+      "env_variable": "OAUTH_WELLKNOWN_URL"
+    },
+    {
+      "type": "text",
+      "label": "OAuth Provider Name",
+      "required": false,
+      "env_variable": "OAUTH_PROVIDER_NAME"
     }
   ],
   "exposable": true,

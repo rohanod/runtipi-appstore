@@ -2,14 +2,14 @@
   "services": [
     {
       "name": "hoarder",
-      "image": "ghcr.io/karakeep-app/karakeep:${HOARDER_VERSION}",
+      "image": "ghcr.io/karakeep-app/karakeep:0.24.1",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
         "MEILI_ADDR": "${MEILI_ADDR}",
         "BROWSER_WEB_URL": "${BROWSER_WEB_URL}",
         "DATA_DIR": "${DATA_DIR:-/data}",
-        "HOARDER_VERSION": "${HOARDER_VERSION}",
+        "HOARDER_VERSION": "0.24.1",
         "OPENAI_API_KEY": "${OPENAI_API_KEY}",
         "NEXTAUTH_SECRET": "${NEXTAUTH_SECRET}",
         "MEILI_MASTER_KEY": "${MEILI_MASTER_KEY}",

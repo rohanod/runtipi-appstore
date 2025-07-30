@@ -17,8 +17,7 @@
       "type": "text",
       "label": "App URL (must be HTTPS)",
       "required": true,
-      "env_variable": "APP_URL",
-      "default": "https://${APP_DOMAIN}"
+      "env_variable": "APP_URL"
     },
     {
       "type": "password",

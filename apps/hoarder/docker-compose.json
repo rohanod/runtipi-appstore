@@ -9,7 +9,7 @@
         "MEILI_ADDR": "${MEILI_ADDR}",
         "BROWSER_WEB_URL": "${BROWSER_WEB_URL}",
         "DATA_DIR": "${DATA_DIR:-/data}",
-        "HOARDER_VERSION": "0.24.1",
+        "KARAKEEP_VERSION": "${KARAKEEP_VERSION}",
         "OPENAI_API_KEY": "${OPENAI_API_KEY}",
         "NEXTAUTH_SECRET": "${NEXTAUTH_SECRET}",
         "MEILI_MASTER_KEY": "${MEILI_MASTER_KEY}",

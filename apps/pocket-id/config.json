@@ -21,8 +21,8 @@
       "default": "https://${APP_DOMAIN}"
     },
     {
-      "type": "random",
-      "label": "Encryption Key",
+      "type": "password",
+      "label": "Encryption Key (openssl rand -base64 32)",
       "min": 32,
       "env_variable": "ENCRYPTION_KEY"
     },
@@ -32,12 +32,6 @@
       "required": false,
       "env_variable": "TRUST_PROXY",
       "default": false
-    },
-    {
-      "type": "text",
-      "label": "MaxMind License Key (optional)",
-      "required": false,
-      "env_variable": "MAXMIND_LICENSE_KEY"
     }
   ],
   "dynamic_config": true,

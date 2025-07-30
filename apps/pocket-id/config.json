@@ -1,0 +1,49 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Pocket ID",
+  "id": "pocket-id",
+  "available": true,
+  "short_desc": "Open-source OIDC provider with passkey authentication.",
+  "author": "pocket-id",
+  "port": 1411,
+  "categories": ["security", "utilities"],
+  "description": "Pocket ID is a simple and easy-to-use OIDC provider that allows users to authenticate with their passkeys to your services. It supports WebAuthn, is open-source, and can be self-hosted easily.",
+  "tipi_version": 1,
+  "version": "v1",
+  "source": "https://github.com/pocket-id/pocket-id",
+  "website": "https://pocket-id.org/",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "App URL (must be HTTPS)",
+      "required": true,
+      "env_variable": "APP_URL",
+      "default": "https://${APP_DOMAIN}"
+    },
+    {
+      "type": "random",
+      "label": "Encryption Key",
+      "min": 32,
+      "env_variable": "ENCRYPTION_KEY"
+    },
+    {
+      "type": "boolean",
+      "label": "Trust Proxy",
+      "required": false,
+      "env_variable": "TRUST_PROXY",
+      "default": false
+    },
+    {
+      "type": "text",
+      "label": "MaxMind License Key (optional)",
+      "required": false,
+      "env_variable": "MAXMIND_LICENSE_KEY"
+    }
+  ],
+  "dynamic_config": true,
+  "exposable": true,
+  "force_expose": true,
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1721376000000,
+  "updated_at": 1721376000000
+}

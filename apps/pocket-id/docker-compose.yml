@@ -1,0 +1,45 @@
+services:
+  pocket-id:
+    container_name: pocket-id
+    image: ghcr.io/pocket-id/pocket-id:v1
+    restart: unless-stopped
+    environment:
+      - APP_URL=${APP_URL}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - TRUST_PROXY=${TRUST_PROXY}
+      - MAXMIND_LICENSE_KEY=${MAXMIND_LICENSE_KEY}
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+    volumes:
+      - ${APP_DATA_DIR}/data/pocket-id:/app/data
+    ports:
+      - ${APP_PORT}:1411
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.pocket-id-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.pocket-id.loadbalancer.server.port: 1411
+      # Web
+      traefik.http.routers.pocket-id-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pocket-id-insecure.entrypoints: web
+      traefik.http.routers.pocket-id-insecure.service: pocket-id
+      traefik.http.routers.pocket-id-insecure.middlewares: pocket-id-web-redirect
+      # Websecure
+      traefik.http.routers.pocket-id.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pocket-id.entrypoints: websecure
+      traefik.http.routers.pocket-id.service: pocket-id
+      traefik.http.routers.pocket-id.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.pocket-id-local-insecure.rule: Host(`pocket-id.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pocket-id-local-insecure.entrypoints: web
+      traefik.http.routers.pocket-id-local-insecure.service: pocket-id
+      traefik.http.routers.pocket-id-local-insecure.middlewares: pocket-id-web-redirect
+      # Local domain secure
+      traefik.http.routers.pocket-id-local.rule: Host(`pocket-id.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pocket-id-local.entrypoints: websecure
+      traefik.http.routers.pocket-id-local.service: pocket-id
+      traefik.http.routers.pocket-id-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true

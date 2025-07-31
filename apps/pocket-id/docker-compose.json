@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "pocket-id",
-      "image": "ghcr.io/pocket-id/pocket-id:v1",
+      "image": "ghcr.io/pocket-id/pocket-id:latest",
       "isMain": true,
       "internalPort": 1411,
       "environment": {

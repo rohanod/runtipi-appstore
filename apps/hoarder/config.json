@@ -20,7 +20,7 @@
       "env_variable": "NEXTAUTH_SECRET"
     },
     {
-      "type": "random",
+      "type": "password",
       "label": "Meili master key",
       "min": 32,
       "env_variable": "MEILI_MASTER_KEY"

@@ -21,9 +21,10 @@
     },
     {
       "type": "password",
-      "label": "Encryption Key (openssl rand -base64 32)",
+      "label": "Encryption Key",
       "min": 32,
-      "env_variable": "ENCRYPTION_KEY"
+      "env_variable": "ENCRYPTION_KEY",
+      "default": "`openssl rand -base64 32`"
     },
     {
       "type": "boolean",

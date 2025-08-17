@@ -27,6 +27,12 @@
     },
     {
       "type": "text",
+      "label": "Meili Address",
+      "default": "http://hoarder_rohan-appstore-hoarder-meilisearch-1:7700",
+      "env_variable": "MEILI_ADDR"
+    },
+    {
+      "type": "text",
       "label": "OpenAI API Key",
       "required": false,
       "env_variable": "OPENAI_API_KEY"

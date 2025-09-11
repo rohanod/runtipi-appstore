@@ -50,3 +50,5 @@ services:
       traefik.http.routers.tinyauth-local.tls: true
       # Runtipi managed
       runtipi.managed: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -1,6 +1,6 @@
 services:
   hoarder:
-    image: ghcr.io/karakeep-app/karakeep:release
+    image: ghcr.io/karakeep-app/karakeep:0.27.1
     container_name: hoarder
     restart: unless-stopped
     volumes:

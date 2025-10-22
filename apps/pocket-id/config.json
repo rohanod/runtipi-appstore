@@ -9,7 +9,7 @@
   "categories": ["security", "utilities"],
   "description": "Pocket ID is a simple and easy-to-use OIDC provider that allows users to authenticate with their passkeys to your services. It supports WebAuthn, is open-source, and can be self-hosted easily.",
   "tipi_version": 3,
-  "version": "latest",
+  "version": "v1.13.1",
   "source": "https://github.com/pocket-id/pocket-id",
   "website": "https://pocket-id.org/",
   "form_fields": [

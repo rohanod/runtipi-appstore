@@ -1,6 +1,6 @@
 services:
   hoarder:
-    image: ghcr.io/karakeep-app/karakeep:0.27.1
+    image: ghcr.io/karakeep-app/karakeep:0.29.3
     container_name: hoarder
     restart: unless-stopped
     volumes:
@@ -53,7 +53,7 @@ services:
       traefik.http.routers.hoarder-local.tls: true
       # Runtipi managed
       runtipi.managed: true
-  
+
   hoarder-chrome:
     image: gcr.io/zenika-hub/alpine-chrome:124
     container_name: hoarder-chrome
@@ -70,7 +70,7 @@ services:
     labels:
       # Runtipi managed
       runtipi.managed: true
-      
+
   hoarder-meilisearch:
     image: getmeili/meilisearch:v1.14
     container_name: hoarder-meilisearch

@@ -9,7 +9,7 @@
   "categories": ["utilities", "ai"],
   "description": "A self-hostable bookmark-everything app (links, notes and images) with AI-based automatic tagging and full text search",
   "tipi_version": 19,
-  "version": "0.27.1",
+  "version": "0.29.3",
   "source": "https://github.com/hoarder-app/hoarder",
   "website": "https://hoarder.app",
   "form_fields": [

@@ -1,28 +1,77 @@
 {
+  "schemaVersion": 2,
   "services": [
     {
       "name": "hoarder",
-      "image": "ghcr.io/karakeep-app/karakeep:0.29.3",
+      "image": "ghcr.io/karakeep-app/karakeep:0.30.0",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "MEILI_ADDR": "${MEILI_ADDR}",
-        "BROWSER_WEB_URL": "${BROWSER_WEB_URL}",
-        "DATA_DIR": "${DATA_DIR:-/data}",
-        "KARAKEEP_VERSION": "${KARAKEEP_VERSION}",
-        "OPENAI_API_KEY": "${OPENAI_API_KEY}",
-        "NEXTAUTH_SECRET": "${NEXTAUTH_SECRET}",
-        "MEILI_MASTER_KEY": "${MEILI_MASTER_KEY}",
-        "NEXTAUTH_URL": "${NEXTAUTH_URL}",
-        "INFERENCE_IMAGE_MODEL": "${INFERENCE_IMAGE_MODEL}",
-        "INFERENCE_TEXT_MODEL": "${INFERENCE_TEXT_MODEL}",
-        "DISABLE_SIGNUPS": "${DISABLE_SIGNUPS}",
-        "DISABLE_PASSWORD_AUTH": "${DISABLE_PASSWORD_AUTH}",
-        "OAUTH_CLIENT_ID": "${OAUTH_CLIENT_ID}",
-        "OAUTH_CLIENT_SECRET": "${OAUTH_CLIENT_SECRET}",
-        "OAUTH_WELLKNOWN_URL": "${OAUTH_WELLKNOWN_URL}",
-        "OAUTH_PROVIDER_NAME": "${OAUTH_PROVIDER_NAME}"
-      },
+      "environment": [
+        {
+          "key": "MEILI_ADDR",
+          "value": "${MEILI_ADDR}"
+        },
+        {
+          "key": "BROWSER_WEB_URL",
+          "value": "${BROWSER_WEB_URL}"
+        },
+        {
+          "key": "DATA_DIR",
+          "value": "${DATA_DIR:-/data}"
+        },
+        {
+          "key": "KARAKEEP_VERSION",
+          "value": "${KARAKEEP_VERSION}"
+        },
+        {
+          "key": "OPENAI_API_KEY",
+          "value": "${OPENAI_API_KEY}"
+        },
+        {
+          "key": "NEXTAUTH_SECRET",
+          "value": "${NEXTAUTH_SECRET}"
+        },
+        {
+          "key": "MEILI_MASTER_KEY",
+          "value": "${MEILI_MASTER_KEY}"
+        },
+        {
+          "key": "NEXTAUTH_URL",
+          "value": "${NEXTAUTH_URL}"
+        },
+        {
+          "key": "INFERENCE_IMAGE_MODEL",
+          "value": "${INFERENCE_IMAGE_MODEL}"
+        },
+        {
+          "key": "INFERENCE_TEXT_MODEL",
+          "value": "${INFERENCE_TEXT_MODEL}"
+        },
+        {
+          "key": "DISABLE_SIGNUPS",
+          "value": "${DISABLE_SIGNUPS}"
+        },
+        {
+          "key": "DISABLE_PASSWORD_AUTH",
+          "value": "${DISABLE_PASSWORD_AUTH}"
+        },
+        {
+          "key": "OAUTH_CLIENT_ID",
+          "value": "${OAUTH_CLIENT_ID}"
+        },
+        {
+          "key": "OAUTH_CLIENT_SECRET",
+          "value": "${OAUTH_CLIENT_SECRET}"
+        },
+        {
+          "key": "OAUTH_WELLKNOWN_URL",
+          "value": "${OAUTH_WELLKNOWN_URL}"
+        },
+        {
+          "key": "OAUTH_PROVIDER_NAME",
+          "value": "${OAUTH_PROVIDER_NAME}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/app",
@@ -45,10 +94,16 @@
     {
       "name": "hoarder-meilisearch",
       "image": "getmeili/meilisearch:v1.13.3",
-      "environment": {
-        "MEILI_NO_ANALYTICS": "true",
-        "MEILI_MASTER_KEY": "${MEILI_MASTER_KEY}"
-      },
+      "environment": [
+        {
+          "key": "MEILI_NO_ANALYTICS",
+          "value": "true"
+        },
+        {
+          "key": "MEILI_MASTER_KEY",
+          "value": "${MEILI_MASTER_KEY}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/melli_data",
@@ -57,5 +112,5 @@
       ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

@@ -1,16 +1,25 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
   "services": [
     {
       "name": "pocket-id",
-      "image": "ghcr.io/pocket-id/pocket-id:v1.13.1",
+      "image": "ghcr.io/pocket-id/pocket-id:v2.0.2",
       "isMain": true,
       "internalPort": 1411,
-      "environment": {
-        "APP_URL": "${APP_URL}",
-        "ENCRYPTION_KEY": "${ENCRYPTION_KEY}",
-        "TRUST_PROXY": "${TRUST_PROXY}"
-      },
+      "environment": [
+        {
+          "key": "APP_URL",
+          "value": "${APP_URL}"
+        },
+        {
+          "key": "ENCRYPTION_KEY",
+          "value": "${ENCRYPTION_KEY}"
+        },
+        {
+          "key": "TRUST_PROXY",
+          "value": "${TRUST_PROXY}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/pocket-id",
@@ -24,5 +33,6 @@
         "retries": 2
       }
     }
-  ]
+  ],
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

@@ -1,39 +1,89 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
   "services": [
     {
       "name": "tinyauth",
-      "image": "ghcr.io/steveiliop56/tinyauth:v4.0.1",
+      "image": "ghcr.io/steveiliop56/tinyauth:v4.1.0",
       "internalPort": 3000,
       "isMain": true,
-      "environment": {
-        "SECRET": "${TINYAUTH_SECRET}",
-        "APP_URL": "${TINYAUTH_APP_URL}",
-        "USERS": "${TINYAUTH_USERS}",
-        "GITHUB_CLIENT_ID": "${TINYAUTH_GITHUB_CLIENT_ID}",
-        "GITHUB_CLIENT_SECRET": "${TINYAUTH_GITHUB_CLIENT_SECRET}",
-        "GOOGLE_CLIENT_ID": "${TINYAUTH_GOOGLE_CLIENT_ID}",
-        "GOOGLE_CLIENT_SECRET": "${TINYAUTH_GOOGLE_CLIENT_SECRET}",
-        "OAUTH_WHITELIST": "${TINYAUTH_OAUTH_WHITELIST}",
-        "DISABLE_CONTINUE": "${TINYAUTH_DISABLE_CONTINUE}",
-        "APP_TITLE": "${TINYAUTH_APP_TITLE}",
-        "GENERIC_CLIENT_ID": "${TINYAUTH_GENERIC_CLIENT_ID}",
-        "GENERIC_CLIENT_SECRET": "${TINYAUTH_GENERIC_CLIENT_SECRET}",
-        "GENERIC_AUTH_URL": "${TINYAUTH_GENERIC_AUTH_URL}",
-        "GENERIC_TOKEN_URL": "${TINYAUTH_GENERIC_TOKEN_URL}",
-        "GENERIC_USER_URL": "${TINYAUTH_GENERIC_USER_URL}",
-        "GENERIC_NAME": "${TINYAUTH_GENERIC_NAME}",
-        "GENERIC_SCOPES": "${TINYAUTH_GENERIC_SCOPES}"
-      },
+      "environment": [
+        {
+          "key": "SECRET",
+          "value": "${TINYAUTH_SECRET}"
+        },
+        {
+          "key": "APP_URL",
+          "value": "${TINYAUTH_APP_URL}"
+        },
+        {
+          "key": "USERS",
+          "value": "${TINYAUTH_USERS}"
+        },
+        {
+          "key": "GITHUB_CLIENT_ID",
+          "value": "${TINYAUTH_GITHUB_CLIENT_ID}"
+        },
+        {
+          "key": "GITHUB_CLIENT_SECRET",
+          "value": "${TINYAUTH_GITHUB_CLIENT_SECRET}"
+        },
+        {
+          "key": "GOOGLE_CLIENT_ID",
+          "value": "${TINYAUTH_GOOGLE_CLIENT_ID}"
+        },
+        {
+          "key": "GOOGLE_CLIENT_SECRET",
+          "value": "${TINYAUTH_GOOGLE_CLIENT_SECRET}"
+        },
+        {
+          "key": "OAUTH_WHITELIST",
+          "value": "${TINYAUTH_OAUTH_WHITELIST}"
+        },
+        {
+          "key": "DISABLE_CONTINUE",
+          "value": "${TINYAUTH_DISABLE_CONTINUE}"
+        },
+        {
+          "key": "APP_TITLE",
+          "value": "${TINYAUTH_APP_TITLE}"
+        },
+        {
+          "key": "GENERIC_CLIENT_ID",
+          "value": "${TINYAUTH_GENERIC_CLIENT_ID}"
+        },
+        {
+          "key": "GENERIC_CLIENT_SECRET",
+          "value": "${TINYAUTH_GENERIC_CLIENT_SECRET}"
+        },
+        {
+          "key": "GENERIC_AUTH_URL",
+          "value": "${TINYAUTH_GENERIC_AUTH_URL}"
+        },
+        {
+          "key": "GENERIC_TOKEN_URL",
+          "value": "${TINYAUTH_GENERIC_TOKEN_URL}"
+        },
+        {
+          "key": "GENERIC_USER_URL",
+          "value": "${TINYAUTH_GENERIC_USER_URL}"
+        },
+        {
+          "key": "GENERIC_NAME",
+          "value": "${TINYAUTH_GENERIC_NAME}"
+        },
+        {
+          "key": "GENERIC_SCOPES",
+          "value": "${TINYAUTH_GENERIC_SCOPES}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "/var/run/docker.sock",
           "containerPath": "/var/run/docker.sock",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "readOnly": false
         }
       ]
     }
-  ]
+  ],
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

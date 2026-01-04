@@ -8,7 +8,8 @@
     "lint": "biome check",
     "lint:ci": "biome ci --changed --error-on-warnings --no-errors-on-unmatched",
     "test": "jest",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "update-version": "node scripts/update-version.js"
   },
   "repository": {
     "type": "git",

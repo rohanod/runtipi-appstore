@@ -23,7 +23,8 @@ function getAppPaths(appId) {
   const appDir = path.join(APPS_DIR, appId);
   return {
     configPath: path.join(appDir, "config.json"),
-    composePath: path.join(appDir, "docker-compose.json"),
+    composeJsonPath: path.join(appDir, "docker-compose.json"),
+    composeYmlPath: path.join(appDir, "docker-compose.yml"),
   };
 }
 
@@ -91,7 +92,7 @@ function gitCommit(appId, newVersion) {
  * @param {string} newVersion
  */
 function updateAppVersion(appId, newVersion) {
-  const { configPath, composePath } = getAppPaths(appId);
+  const { configPath, composeJsonPath, composeYmlPath } = getAppPaths(appId);
 
   if (!fs.existsSync(configPath)) {
     console.error(`Error: App "${appId}" not found at ${configPath}`);
@@ -112,8 +113,8 @@ function updateAppVersion(appId, newVersion) {
   console.log(`  tipi_version: ${oldTipiVersion} → ${config.tipi_version}`);
   console.log(`  updated_at: ${config.updated_at}`);
 
-  if (fs.existsSync(composePath)) {
-    const compose = readJson(composePath);
+  if (fs.existsSync(composeJsonPath)) {
+    const compose = readJson(composeJsonPath);
     let updatedImages = 0;
 
     if (compose.services && Array.isArray(compose.services)) {
@@ -131,9 +132,34 @@ function updateAppVersion(appId, newVersion) {
     }
 
     if (updatedImages > 0) {
-      writeJson(composePath, compose);
+      writeJson(composeJsonPath, compose);
     } else {
       console.log(`ℹ No main service image updated in docker-compose.json`);
+    }
+  }
+
+  if (fs.existsSync(composeYmlPath)) {
+    let ymlContent = fs.readFileSync(composeYmlPath, "utf-8");
+    const imageRegex = /^(\s*image:\s*)(\S+):(\S+)$/gm;
+    let updatedYml = false;
+    let firstMatch = true;
+
+    ymlContent = ymlContent.replace(imageRegex, (match, prefix, imageName, oldTag) => {
+      if (firstMatch) {
+        firstMatch = false;
+        const newImage = `${prefix}${imageName}:${newVersion}`;
+        if (match !== newImage) {
+          console.log(`✓ Updated docker-compose.yml:`);
+          console.log(`  ${imageName}:${oldTag} → ${imageName}:${newVersion}`);
+          updatedYml = true;
+        }
+        return newImage;
+      }
+      return match;
+    });
+
+    if (updatedYml) {
+      fs.writeFileSync(composeYmlPath, ymlContent);
     }
   }
 
